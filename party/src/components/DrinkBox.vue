@@ -1,8 +1,11 @@
 <template lang="html">
 
-  <div class="drink-box" @click="auswahl(`${name}`)"  :id="`${name}`">
-    <img :src="require(`@/assets/${imgsource}`)"  class="drink-image">
-    <p> {{name}} </p>
+  <div class="drink-box" :id="`${name}`" @click="auswahl(`${name}`); $emit('select')">
+
+    <img v-if="drinktype === 'hard'" src="@/assets/vodka.png" class="drink-image" />
+    <img v-if="drinktype === 'medium'" src="@/assets/beer.png" class="drink-image" />
+    <img v-if="drinktype === 'soft'" src="@/assets/soft-drinks.png" class="drink-image" />
+    <p> {{ name }} </p>
   </div>
 
 </template>
@@ -11,25 +14,18 @@
 
 export default {
   name: 'drink-box',
-  props: ['name', 'imgsource'],
+  props: ['name', 'drinktype'],
+  emits: ['select'],
   mounted() {
 
-  },
-  data() {
-    return {
-      //selected: 
-    }
   },
   methods: {
     auswahl(name) {
       const box = document.getElementById(name).classList
-      if(!box.contains("drink-box-selected")) {
+      if (!box.contains("drink-box-selected")) {
         box.add("drink-box-selected")
-        this.selected.push(name)
-        //$emit
-} else {
+      } else {
         box.remove("drink-box-selected")
-        //TODO remove from list
       }
     }
   },
@@ -55,7 +51,7 @@ export default {
   cursor: pointer;
 }
 
-.drink-box-selected{
+.drink-box-selected {
   border-color: rgb(1, 238, 20);
 }
 
