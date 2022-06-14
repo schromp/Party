@@ -2,9 +2,10 @@
 
   <div class="drink-box" :id="`${name}`" @click="auswahl(`${name}`); $emit('select')">
 
-    <img v-if="drinktype === 'hard'" src="@/assets/vodka.png" class="drink-image" />
+    <img v-if="drinktype === 'hard'" src="@/assets/hard.png" class="drink-image" />
     <img v-if="drinktype === 'medium'" src="@/assets/beer.png" class="drink-image" />
-    <img v-if="drinktype === 'soft'" src="@/assets/soft-drinks.png" class="drink-image" />
+    <img v-if="drinktype === 'soft'" src="@/assets/soft.png" class="drink-image" />
+    <img v-if="drinktype === 'shot'" src="@/assets/shot.png" class="drink-image" />
     <p> {{ name }} </p>
   </div>
 
@@ -16,9 +17,6 @@ export default {
   name: 'drink-box',
   props: ['name', 'drinktype'],
   emits: ['select'],
-  mounted() {
-
-  },
   methods: {
     auswahl(name) {
       const box = document.getElementById(name).classList
@@ -28,23 +26,23 @@ export default {
         box.remove("drink-box-selected")
       }
     }
-  },
-  computed: {
-
   }
 }
-
 
 </script>
 
 <style scoped lang="css">
 .drink-box {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
   border: 2px solid;
-  width: 100px;
-  height: 100px;
+  width: 3rem;
+  height: 5rem;
   border-radius: 15px;
   transition-duration: 250ms;
+  
 }
 
 .drink-box:hover {
@@ -52,12 +50,12 @@ export default {
 }
 
 .drink-box-selected {
-  border-color: rgb(1, 238, 20);
+  background-color: #0077b6;
 }
 
 
 .drink-image {
-  width: 64px;
-  height: 64px;
+  width: 3em;
+  height: 3em;
 }
 </style>

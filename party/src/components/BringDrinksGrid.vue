@@ -1,32 +1,33 @@
 <template lang="html">
 
-  <div class="drinks-grid">
-    <DrinkBox v-for="(drink, index) in data" :key="index" :name="drink.name"
+  <div class="bring-drinks-grid">
+    <BringDrinkBox v-for="(drink, index) in data" :key="index" :name="drink.name"
       :drinktype="drink.type" @select="selectDrink(drink.id)" />
   </div>
 
 </template>
 
 <script lang="js">
-import DrinkBox from './DrinkBox.vue';
+import BringDrinkBox from './BringDrinkBox.vue';
 import { supabase } from '../supabase'
 import { ref } from 'vue';
 
 export default {
-  name: 'drinks-grid',
+  name: 'bring-drinks-grid',
   props: [],
   components: {
-    DrinkBox,
+    BringDrinkBox,
   },
   setup() {
     const data = ref([])
     const dataLoaded = ref(null)
     const getDrinks = async () => {
       try {
-        const { data: drinks, error } = await supabase.from('drinks').select('*')
+        const { data: drinks, error } = await supabase.from('drinks').select('*').order('type', {ascending: false})
         if (error) throw error
         data.value = drinks
         dataLoaded.value = true
+        console.log(data.value)
       } catch (error) {
         console.warn(error.message)
       }
@@ -40,9 +41,6 @@ export default {
     return {
       selected: []
     }
-  },
-  computed: {
-
   },
   methods: {
     selectDrink(drink) {
@@ -65,7 +63,7 @@ export default {
 </script>
 
 <style scoped lang="css">
-.drinks-grid {
+.bring-drinks-grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, 100px);

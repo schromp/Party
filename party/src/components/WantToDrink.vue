@@ -1,58 +1,46 @@
 <template lang="html">
 
     <div class="page">
-        <input id="nameinput" type="text" placeholder="Name:">
-        <DrinksGrid></DrinksGrid>
-        <button id="weiter"> Weiter </button>
+        <h1> Das möchte ich trinken: </h1>
+        <p> Damit ich bescheid weiß wie viel Alkohol gebraucht wird und was ich kaufen soll klick bitte einmal alle
+            Getränke an, die du trinken würdest. </p>
+        <DrinksGrid @update="$emit('update1', $event)"></DrinksGrid>
+        <div class="button-wrapper">
+            <ButtonPreset type="back" @click="$emit('back')"></ButtonPreset>
+            <ButtonPreset type="weiter" @click="$emit('weiter')"></ButtonPreset>
+        </div>
+
     </div>
 
 </template>
 
 <script lang="js">
 import DrinksGrid from './DrinksGrid.vue'
+import ButtonPreset from './ButtonPreset.vue'
 
 export default {
     name: 'want-to-drink',
     components: {
-        DrinksGrid
+        DrinksGrid,
+        ButtonPreset
     }
 }
 </script>
 
 <style scoped lang="css">
 .page {
-    width: fit-content;
-    padding: 10px;
+
+    width: min(90%, 30rem);
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid;
 }
 
-#weiter {
-    width: 150px;
-    height: 30px;
-    margin: 20px;
-    background-color: white;
-    border: 2px solid;
-    border-radius: 6px;
-}
-
-#weiter:hover {
-    cursor: pointer;
-}
-
-#nameinput {
-    margin: 20px;
-    box-sizing: border-box;
-    padding: 12px 20px;
-    width: 400px;
-    height: 30px;
-    border: 2px solid;
-    border-radius: 6px;
-}
-
-#nameinput:focus {
-    outline: none;
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 </style>
