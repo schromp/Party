@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - 'prod'
-defaults:
-  run:
-    working-directory: ./party
 jobs:
   build:
     runs-on: ubuntu-latest
