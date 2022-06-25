@@ -1,5 +1,5 @@
 # party
-TETSTSTSTTT
+Did i push?
 ## Project setup
 ```
 npm install
