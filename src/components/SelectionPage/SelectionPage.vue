@@ -1,5 +1,6 @@
 <template>
   <div id="selection-page">
+    <p> <router-link to="stats"> Statspage </router-link> </p>
     <InfoBox v-show="step == 0" @weiter="name = $event; weiter()"></InfoBox>
     <WantToDrink v-show="step == 1" @weiter="weiter()" @back="back()" @update1="selectedDrinks = $event" />
     <WantToBring v-show="step == 2" @senden="senden()" @back="back()" @update2="bringsDrinks = $event"></WantToBring>

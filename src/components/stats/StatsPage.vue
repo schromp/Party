@@ -2,7 +2,8 @@
 
   <div class="stats-page">
     <h1> STATS!</h1>
-    <BarChart />
+    <p> <router-link to="/"> Mainpage </router-link> </p>
+    <BarChart/>
   </div>
 
 </template>
