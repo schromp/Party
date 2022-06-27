@@ -9,9 +9,12 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.3",
+    "chart.js": "^3.8.0",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue-chartjs": "^4.1.1",
     "vue-cookies": "^1.8.1",
+    "vue-router": "^4.0.16",
     "vue3-cookies": "^1.0.6"
   },
   "devDependencies": {

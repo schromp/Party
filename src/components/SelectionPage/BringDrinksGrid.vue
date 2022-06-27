@@ -9,7 +9,7 @@
 
 <script lang="js">
 import BringDrinkBox from './BringDrinkBox.vue';
-import { supabase } from '../supabase'
+import { supabase } from '@/supabase'
 import { ref } from 'vue';
 
 export default {

@@ -9,7 +9,7 @@
 
 <script lang="js">
 import DrinkBox from './DrinkBox.vue';
-import { supabase } from '../supabase'
+import { supabase } from '@/supabase'
 import { ref } from 'vue';
 
 export default {
@@ -24,6 +24,7 @@ export default {
     const getDrinks = async () => {
       try {
         const { data: drinks, error } = await supabase.from('drinks').select('*')
+        console.log(drinks)
         if (error) throw error
         data.value = drinks
         dataLoaded.value = true
