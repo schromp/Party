@@ -90,7 +90,10 @@ export default {
       console.log(v)
 
       const dlables = []
-      d.forEach(drinks => dlables.push(drinks.name))
+
+      d.forEach(element => {
+        dlables.push(element.name)
+      })
 
       this.chartData.labels = dlables
 
@@ -99,11 +102,13 @@ export default {
           const color = this.getRandomColor()
 
           voter.selectedDrinks.forEach(sDrink => {
+            //console.log(voter.votername + ': id:' + sDrink + ' drink: ' + d.find(element => element.id === sDrink).name)
+
             this.chartData.datasets.push(
               {
                 label: voter.votername,
-                data: [{ x: dlables[sDrink - 1], y: 1 }],
-                stack: 'Stack 0',
+                data: [{ x: d.find(element => element.id === sDrink).name, y: 1 }], //ids not matching
+                stack: 'Will',
                 backgroundColor: color,
               }
             )
@@ -113,8 +118,8 @@ export default {
             this.chartData.datasets.push(
               {
                 label: voter.votername,
-                data: [{ x: dlables[bDrink - 1], y: 1 }],
-                stack: 'Stack 1',
+                data: [{ x: d.find(element => element.id === bDrink).name, y: 1 }],
+                stack: 'Bringt',
                 backgroundColor: color,
               }
             )
