@@ -1,24 +1,7 @@
-# party
-PUSH
-## Project setup
-```
-npm install
-```
+# Party planner
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+This has been my first ever personal project aswell as my intro to web development.
+Thinking back im sure there are a lot of areas to improve but I have decided to move away from the world of the frontend.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+And this is only a frontend.
+When this was online I was using [supabase](https://supabase.com/) as a backend.
